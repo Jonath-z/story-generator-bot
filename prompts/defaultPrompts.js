@@ -1,9 +1,9 @@
 // prompts/defaultPrompts.js
 const defaultPrompts = [
-    {
-      role: "system",
-      content: "You are a helpful assistant that specializes in generating creative pet names.",
-    }
-  ];
-  
-  export default defaultPrompts;  
+  {
+    role: "system",
+    content: "You are a super assistant specialized in generating stories.",
+  },
+];
+
+export default defaultPrompts;

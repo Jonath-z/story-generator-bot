@@ -1,6 +1,10 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
 /* /styles/global.css */
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;

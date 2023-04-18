@@ -1,19 +1,39 @@
-import Head from 'next/head';
-import { Inter } from 'next/font/google';
-import { useState } from 'react';
-import TextInput from '@/components/TextInput';
-import SubmitButton from '@/components/SubmitButton';
-import ResponseDisplay from '@/components/ResponseDisplay';
-import useApi from '@/hooks/useApi';
+import Head from "next/head";
+import { Inter } from "next/font/google";
+import { useState } from "react";
+import TextInput from "@/components/TextInput";
+import SubmitButton from "@/components/SubmitButton";
+import ResponseDisplay from "@/components/ResponseDisplay";
+import useApi from "@/hooks/useApi";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
+
+const buildPrompt = (
+  genre,
+  audience,
+  theme,
+  message,
+  mood,
+  character,
+  characterTraits,
+  timePeriod,
+  length
+) => `Generate a ${genre} story for ${audience} with a ${theme} that conveys ${message}. 
+  The story should have a ${mood} and include ${character} with ${characterTraits}. 
+  It should be set in ${timePeriod}. The desired length of the story is ${length}.`;
 
 export default function Home() {
-  const [inputValue, setInputValue] = useState('');
-  const [submitValue, setSubmitValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
+  const [submitValue, setSubmitValue] = useState("");
   const [userMessages, setUserMessages] = useState([]);
   const [assistantMessages, setAssistantMessages] = useState([]);
-  const { data, error, loading } = useApi('/api/openai', 'POST', submitValue, userMessages, assistantMessages);
+  const { data, error, loading } = useApi(
+    "/api/openai",
+    "POST",
+    submitValue,
+    userMessages,
+    assistantMessages
+  );
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -37,10 +57,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="container">
-        <h1 className={inter.className}>NextJS OpenAI Boilerplate</h1>
-        <p className={inter.className}> Test this boilerplate with a prompt, such as a request for a pet name, and the AI will respond while keeping track of the conversation.
-        </p>
+      <main className="flex flex-col max-w-7xl mx-auto">
+        <h1 className="text-3xl font-bold mt-10">Story Generator AI</h1>
+        <p className="text-sm font-thin">Powerd by Nextjs openai boilerplate</p>
         <form>
           <ResponseDisplay data={data} error={error} loading={loading} />
           <TextInput value={inputValue} onChange={handleInputChange} />
