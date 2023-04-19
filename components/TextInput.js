@@ -1,11 +1,11 @@
 const TextInput = ({ value, onChange }) => {
   return (
-    <input
+    <textarea
       type="text"
       value={value}
       onChange={onChange}
-      className="text-input"
-      placeholder="Enter your prompt here (e.g. 'I want a pet name for my dog')"
+      className="text-input resize"
+      placeholder="Enter your prompt here :)"
     />
   );
 };

@@ -40,8 +40,3 @@ body {
 .submit-button:hover {
   background-color: #0051cc;
 }
-
-.response-display {
-  margin-top: 1rem;
-  padding: 0.5rem;
-}

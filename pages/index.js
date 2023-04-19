@@ -8,20 +8,6 @@ import useApi from "@/hooks/useApi";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const buildPrompt = (
-  genre,
-  audience,
-  theme,
-  message,
-  mood,
-  character,
-  characterTraits,
-  timePeriod,
-  length
-) => `Generate a ${genre} story for ${audience} with a ${theme} that conveys ${message}. 
-  The story should have a ${mood} and include ${character} with ${characterTraits}. 
-  It should be set in ${timePeriod}. The desired length of the story is ${length}.`;
-
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
   const [submitValue, setSubmitValue] = useState("");
@@ -57,9 +43,27 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex flex-col max-w-7xl mx-auto">
+      <main className="flex flex-col max-w-5xl mx-auto px-10">
         <h1 className="text-3xl font-bold mt-10">Story Generator AI</h1>
-        <p className="text-sm font-thin">Powerd by Nextjs openai boilerplate</p>
+        <p className="text-sm font-thin text-gray-700 opacity-80">
+          Powerd by Nextjs openai boilerplate
+        </p>
+
+        <p className="text-gray-500 opacity-75 mt-5 flex flex-col">
+          <span>Prompt {!inputValue && <span>Example: </span>}</span>
+          {inputValue ? (
+            <span>{inputValue}</span>
+          ) : (
+            <span>
+              "Generate a mystery story for adults with a theme of revenge that
+              conveys the message that actions have consequences. The story
+              should have a serious and dramatic tone and include a detective
+              character with a troubled past and a vengeful antagonist with a
+              secret motive. It should be set in a small town in the present
+              day. The desired length of the story is longer."
+            </span>
+          )}
+        </p>
         <form>
           <ResponseDisplay data={data} error={error} loading={loading} />
           <TextInput value={inputValue} onChange={handleInputChange} />
