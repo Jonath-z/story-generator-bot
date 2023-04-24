@@ -44,23 +44,25 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex flex-col max-w-5xl mx-auto px-10">
-        <h1 className="text-3xl font-bold mt-10">Story Generator AI</h1>
-        <p className="text-sm font-thin text-gray-700 opacity-80">
+        <h1 className="text-3xl font-bold mt-10 text-black">
+          Tweet Generator AI
+        </h1>
+        <p className="text-sm font-thin text-black opacity-80">
           Powerd by Nextjs openai boilerplate
         </p>
 
-        <p className="text-gray-500 opacity-75 mt-5 flex flex-col">
+        <p className="text-white opacity-75 mt-5 flex flex-col">
           <span>Prompt {!inputValue && <span>Example: </span>}</span>
           {inputValue ? (
             <span>{inputValue}</span>
           ) : (
             <span>
-              "Generate a mystery story for adults with a theme of revenge that
-              conveys the message that actions have consequences. The story
-              should have a serious and dramatic tone and include a detective
-              character with a troubled past and a vengeful antagonist with a
-              secret motive. It should be set in a small town in the present
-              day. The desired length of the story is longer."
+              "Generate a tweet for a mystery story for adults with a theme of
+              revenge that conveys the message that actions have consequences.
+              The story should have a serious and dramatic tone and include a
+              detective character with a troubled past and a vengeful antagonist
+              with a secret motive. It should be set in a small town in the
+              present day."
             </span>
           )}
         </p>

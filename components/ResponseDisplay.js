@@ -12,9 +12,9 @@ const ResponseDisplay = ({ data, error, loading }) => {
   }
 
   return (
-    <div className="my-5 text-gray-800">
-      {content && <h2 className="mb-5 text-2xl font-bold">Story</h2>}
-      <p>{content}</p>
+    <div className="my-5 text-white">
+      {content && <h2 className="mb-5 text-2xl font-bold text-black">Tweet</h2>}
+      <p className="text-2xl">{content}</p>
     </div>
   );
 };
